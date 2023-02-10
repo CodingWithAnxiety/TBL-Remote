@@ -1,7 +1,7 @@
 # TBL-Remote
 A remote designed to make DMing within TBL much easier, with the use of Unified Remote
 
-##Unified remote
+**Unified remote**
 
 Unified Remote is an app to turn your smartphone into a wireless universal remote control for your computer.
 
