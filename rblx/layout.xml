@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+	<tabs visibility="visible">
+		<tab text="ZB keybinds P.1">
+			<row>
+				<!--IC code-->
+				<toggle id="my_toggle"
+					dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E" text="[IC]"
+					checked="false" onchange="ic_ooc_toggle_change"/>
+			</row>
+			<row>
+				<!--Stealth code-->
+				<button dark="normal:#9B59B6;focus:#8E44AD;active:#8E44AD;color:#2C3E50"
+					text="Stealth active" ontap="stealth_act"/>
+				<button dark="normal:#C0392B;focus:#E74C3C;active:#E74C3C;color:#131418"
+					text="Stealth inactive" ontap="stealth_inact"/>
+			</row>
+			<row>
+				<!--Combat code-->
+				<button dark="normal:#9B59B6;focus:#8E44AD;active:#8E44AD;color:#2C3E50"
+					text="Combat active" ontap="combat_act"/>
+				<button dark="normal:#C0392B;focus:#E74C3C;active:#E74C3C;color:#131418"
+					text="Combat inactive" ontap="combat_inact"/>
+			</row>
+			<row>
+				<!--Turn code-->
+				<button dark="normal:#9B59B6;focus:#8E44AD;active:#8E44AD;color:#2C3E50"
+					text="Player turn" ontap="player_turn"/>
+				<button dark="normal:#C0392B;focus:#E74C3C;active:#E74C3C;color:#131418"
+					text="Enemy turn" ontap="enemy_turn"/>
+			</row>
+
+			<row>
+				<!--DM code-->
+				<toggle id="my_dm_toggle"
+					dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E"
+					text="[DM call]" checked="false" onchange="dm_toggle_change"/>
+			</row>
+			<row>
+				<!--DM Inline code-->
+				<button dark="normal:#9B59B6;focus:#8E44AD;active:#8E44AD;color:#2C3E50"
+					text="DM call [Inline]" ontap="dm_start_in"/>
+				<button dark="normal:#C0392B;focus:#E74C3C;active:#E74C3C;color:#131418"
+					text="DM over [Inline]" ontap="dm_end_in"/>
+			</row>
+			<row>
+				<!--Emote code-->
+				<button dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E"
+					text="Emote freely" ontap="emote_f"/>
+			</row>
+			<row>
+				<!--Radio code-->
+				<button dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E"
+					text="Radio insert" ontap="radio"/>
+			</row>
+		</tab>
+		<tab text="Dice Specific Keybinds">
+			<row>
+				<!--D20 code-->
+				<button dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E"
+					text="Roll a d20" ontap="d20"/>
+			</row>
+			<row>
+				<button text="Roll D20" ontap="roll_d20"/>
+				<button text="Roll d100" ontap="roll_d100"/>
+				<button text="Roll d500" ontap="roll_d500"/>
+			</row>
+
+		</tab>
+		<tab text="'Roll for...' commands">
+
+			<list>
+				<item text="Strength\nRoll for Strength" image="STR.png"/>
+				<item text="Dexterity\nRoll for Dexterity" image="DEX.png"/>
+				<item text="Intelligence\nRoll for Intelligence" image="INT.png"/>
+				<item text="Willpower\nRoll for Willpower" image="WIL.png"/>
+				<item text="Constitution\nRoll for Constitution" image="CON.png"/>
+				<item text="Charisma\nRoll for Charisma" image="CHR.png"/>
+			</list>
+		</tab>
+		<!--<tab text="Brettkovali Specific keybinds">
+			<row>
+				<!-\-example-\->
+				<label text="press me!" ontap="foobar"/>
+			</row>
+		</tab>-->
+	</tabs>
+
+</layout>
