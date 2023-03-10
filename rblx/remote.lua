@@ -30,14 +30,28 @@
 	The Lovebecile
 --]]
 
-local kb = libs.keyboard
-local toggle_state = false
-local dm_state = false
 -- Documentation
 -- http://www.unifiedremote.com/api
 
 -- Keyboard Library
 -- http://www.unifiedremote.com/api/libs/keyboard
+
+
+--These are test 'locals'- Experimental. Can be removed but will break everything at the bottom
+local items = {
+{ id = "item1", type = "item", text = "item 1" },
+{ id = "item2", type = "item", text = "item 2" },
+{ id = "item3", type = "item", text = "item 3" }
+};
+local server = require("server");
+local log = require("log");
+-- local layout = setmetatable({}, {__index=_G})
+
+-- These 'locals' have been tested and are required
+local kb = libs.keyboard
+local toggle_state = false
+local dm_state = false
+
 
 -- IC code (LUA)
 actions.ic_ooc_toggle_change = function(checked)
@@ -51,7 +65,7 @@ actions.ic_ooc_toggle_change = function(checked)
         kb.text("[IC]")
         kb.press("return")
     end
-    layout.my_toggle.text = "[" .. (toggle_state and "OOC" or "IC") .. "]"
+    layout.ic_toggle.text = "[" .. (toggle_state and "OOC" or "IC") .. "]"
 end
 
 -- DM CODE (LUA)
@@ -66,7 +80,7 @@ actions.dm_toggle_change = function(checked)
         kb.text("[DM end]")
         kb.press("return")
     end
-    layout.my_dm_toggle.text = "[" .. (dm_state and "DM end" or "DM call") .. "]"
+    layout.dm_toggle.text = "[" .. (dm_state and "DM end" or "DM call") .. "]"
 end
 
 -- Stealth active code (LUA)
@@ -150,7 +164,7 @@ end
 -- Roll D20 function
 actions.roll_d20 = function ()
 local roll = math.random(1, 20)
-kb.press("/");
+kb.text("/");
 kb.text("The result of the D20 roll is " .. roll);
 kb.press("return");
 end
@@ -158,7 +172,7 @@ end
 -- Roll D100 function
 actions.roll_d100 = function ()
 local roll = math.random(1, 100)
-kb.press("/");
+kb.text("/");
 kb.text("The result of the D100 roll is " .. roll);
 kb.press("return");
 end
@@ -166,49 +180,82 @@ end
 -- Roll D500 function
 actions.roll_d500 = function ()
 local roll = math.random(1, 500)
-kb.press("/");
+kb.text("/");
 kb.text("The result of the D500 roll is " .. roll);
 kb.press("return");
 end
 
 -- Roll for Strength function
 actions.roll_strength = function ()
-kb.press("/");
+kb.text("/");
 kb.text("Roll for Strength! Rollsheet bonuses apply.");
 kb.press("return");
 end
 
 -- Roll for Dexterity function
 actions.roll_dexterity = function ()
-kb.press("/");
+kb.text("/");
 kb.text("Roll for Dexterity! Rollsheet bonuses apply.");
 kb.press("return");
 end
 
 -- Roll for Intelligence function
 actions.roll_intelligence = function ()
-kb.press("/");
+kb.text("/");
 kb.text("Roll for Intelligence! Rollsheet bonuses apply.");
 kb.press("return");
 end
 
 -- Roll for Willpower function
 actions.roll_willpower = function ()
-kb.press("/");
+kb.text("/");
 kb.text("Roll for Willpower! Rollsheet bonuses apply.");
 kb.press("return");
 end
 
 -- Roll for Constitution function
 actions.roll_constitution = function ()
-kb.press("/");
+kb.text("/");
 kb.text("Roll for Constitution! Rollsheet bonuses apply.");
 kb.press("return");
 end
 
--- Roll for Charisma function
+-- Roll for Charisma function (i'm going to kill myself if I change this icon one more fucking time)
 actions.roll_charisma = function ()
-kb.press("/");
+kb.text("/");
 kb.text("Roll for Charisma! Rollsheet bonuses apply.");
 kb.press("return");
+end
+
+--[[
+
+BEWARE THIS SHIT IS ALL EXAMPLE SHIIITTTT
+
+Remove or turn to comment block before git push
+
+actually remove it this code is dogshit (literally fuck this)
+--]]
+
+
+--[[
+Remember, the documentation is a lie. This is the CORRECT CODE.
+Fuck you, Philip and Jakob. Sincerely, FUCK YOU.
+Refer to test locals above btw - Experimental locals
+--]]
+
+
+actions.toggleListDialog = function (checked)
+if checked then
+actions.showListDialog();
+else
+server.update({ id = "list", children = {} });
+end
+end
+
+actions.showListDialog = function()
+server.update({ id = "list", ontap = "mydialog", children = items });
+end
+
+actions.mydialog = function(i)
+	server.update({ id = "alert", type = "alert", text = "You tapped on item " .. i })
 end
