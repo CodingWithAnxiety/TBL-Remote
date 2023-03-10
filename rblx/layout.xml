@@ -1,47 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--
-|''||''| '||              '||''|.   '||                  '||      '||'       ||  '||                      
-   ||     || ..     ....   ||   ||   ||   ....     ....   ||  ..   ||       ...   || ...  ... ..   ....   
-   ||     ||' ||  .|...||  ||'''|.   ||  '' .||  .|   ''  || .'    ||        ||   ||'  ||  ||' '' '' .||  
-   ||     ||  ||  ||       ||    ||  ||  .|' ||  ||       ||'|.    ||        ||   ||    |  ||     .|' ||  
-  .||.   .||. ||.  '|...' .||...|'  .||. '|..'|'  '|...' .||. ||. .||.....| .||.  '|...'  .||.    '|..'|' 
-
-	"Balance through death!"
-	Monocode;
-	The Black Libra
-  
-  In partnership with the;
-  
-      ...                     _                          ..                            .          ..            
-  .zf"` `"tu                 u                     . uW8"                             @88>  x .d88"             
- x88      '8N.        u.    88Nu.   u.             `t888                              %8P    5888R              
- 888k     d88&  ...ue888b  '88888.o888c      .u     8888   .        .u          .      .     '888R        .u    
- 8888N.  @888F  888R Y888r  ^8888  8888   ud8888.   9888.z88N    ud8888.   .udR88N   .@88u    888R     ud8888.  
- `88888 9888%   888R I888>   8888  8888 :888'8888.  9888  888E :888'8888. <888'888k ''888E`   888R   :888'8888. 
-   %888 "88F    888R I888>   8888  8888 d888 '88%"  9888  888E d888 '88%" 9888 'Y"    888E    888R   d888 '88%" 
-    8"   "*h=~  888R I888>   8888  8888 8888.+"     9888  888E 8888.+"    9888        888E    888R   8888.+"    
-  z8Weu        u8888cJ888   .8888b.888P 8888L       9888  888E 8888L      9888        888E    888R   8888L      
- ""88888i.   Z  "*888*P"     ^Y8888*""  '8888c. .+ .8888  888" '8888c. .+ ?8888u../   888&   .888B . '8888c. .+ 
-"   "8888888*     'Y"          `Y"       "88888%    `%888*%"    "88888%    "8888P'    R888"  ^*888%   "88888%   
-      ^"**""                               "YP'        "`         "YP'       "P'       ""      "%       "YP'    
-
-	"With love."
-	Monocode;
-	The Lovebecile
--->
-
 <layout>
 	<tabs visibility="visible">
-		<tab text="ZB keybinds P.1">
+		<tab text="Guide">
+			<!-- Introductory tab -->
+		</tab>
+		<tab text="Settings">
+			<!-- Settings for settings.prop -->
+		</tab>
+		<tab text="ZB macros">
+			<!--Tab for Zaibatsu macros-->
 			<row>
-				<!--IC code-->
-				<toggle id="my_toggle"
+				<!--IC code [tell whoever made XML to go fuck themselves] -->
+				<toggle id="ic_toggle"
 					dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E" text="[IC]"
 					checked="false" onchange="ic_ooc_toggle_change"/>
 			</row>
 			<row>
-				<!--Stealth code-->
+				<!--Stealth code [Fuck you, dave.]-->
 				<button dark="normal:#9B59B6;focus:#8E44AD;active:#8E44AD;color:#2C3E50"
 					text="Stealth active" ontap="stealth_act"/>
 				<button dark="normal:#C0392B;focus:#E74C3C;active:#E74C3C;color:#131418"
@@ -64,7 +39,7 @@
 
 			<row>
 				<!--DM code-->
-				<toggle id="my_dm_toggle"
+				<toggle id="dm_toggle"
 					dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E"
 					text="[DM call]" checked="false" onchange="dm_toggle_change"/>
 			</row>
@@ -87,6 +62,7 @@
 			</row>
 		</tab>
 		<tab text="Dice Specific Keybinds">
+			<!-- Dice commands -->
 			<row>
 				<!--D20 code-->
 				<button dark="normal:#2ECC71;focus:#27AE60;active:#E74C3C;color:#34495E"
@@ -100,22 +76,29 @@
 
 		</tab>
 		<tab text="'Roll for...' commands">
+			<!-- "Roll for" chat commands-->
 
 			<list>
-				<item text="Strength\nRoll for Strength" image="STR.png"/>
-				<item text="Dexterity\nRoll for Dexterity" image="DEX.png"/>
-				<item text="Intelligence\nRoll for Intelligence" image="INT.png"/>
-				<item text="Willpower\nRoll for Willpower" image="WIL.png"/>
-				<item text="Constitution\nRoll for Constitution" image="CON.png"/>
-				<item text="Charisma\nRoll for Charisma" image="CHR.png"/>
+				<item text="Strength\nRoll for Strength" image="STR.png" ontap="roll_strength"/>
+				<item text="Dexterity\nRoll for Dexterity" image="DEX.png" ontap="roll_dexterity"/>
+				<item text="Intelligence\nRoll for Intelligence" image="INT.png" ontap="roll_intelligence"/>
+				<item text="Willpower\nRoll for Willpower" image="WIL.png" ontap="roll_willpower"/>
+				<item text="Constitution\nRoll for Constitution" image="CON.png" ontap="roll_constitution"/>
+				<item text="Charisma\nRoll for Charisma" image="CHR.png" ontap="roll_charisma"/>
 			</list>
 		</tab>
-		<!--<tab text="Brettkovali Specific keybinds">
-			<row>
-				<!-\-example-\->
-				<label text="press me!" ontap="foobar"/>
-			</row>
-		</tab>-->
+        <tab text="Example 1">
+        	<grid>
+        		<row>
+        			<toggle id="toggleListDialog" onChange="toggleListDialog" />
+        		</row>
+        		<row>
+        			<list id="list" onTap="mydialog" />
+        		</row>
+        	</grid>
+        </tab>
+		<tab text="Example 2"> </tab>
+		<tab text="Example 3"> </tab>
 	</tabs>
 
 </layout>
